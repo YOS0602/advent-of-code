@@ -1,8 +1,7 @@
 export function detectMaximumCalories() {
-    return 24000
+  return 24000;
 }
 
 export function divideCaloriesIndividually(input: string) {
-    // input.split('\n\n').map(manCalories)
-    return [[1],[2]]
+  return input.split('\n\n').map((num) => [Number(num)]);
 }
