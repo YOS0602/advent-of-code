@@ -1,6 +1,5 @@
 {
   "env": {
-    "browser": true,
     "node": true
     // "jest/globals": true
   },
@@ -9,8 +8,6 @@
     // See https://knmts.com/as-a-engineer-25/
     "plugin:@typescript-eslint/recommended",
     // See https://github.com/francoismassart/eslint-plugin-tailwindcss#3-configure-eslint-parsers
-    "plugin:tailwindcss/recommended",
-    "next/core-web-vitals",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
