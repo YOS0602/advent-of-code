@@ -1,4 +1,5 @@
-export function detectMaximumCalories() {
+export function detectMaximumCalories(input: string) {
+  input;
   return 24000;
 }
 
