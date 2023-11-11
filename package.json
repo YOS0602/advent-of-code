@@ -1,18 +1,16 @@
 {
-  "name": "advent-of-code-2023",
+  "name": "advent-of-code",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "vitest run"
   },
   "repository": {
     "type": "git",
-    "url": "git@github-private:YOS0602/advent-of-code-2023.git"
+    "url": "https://github.com/YOS0602/advent-of-code"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "YOS0602 <yoshitaka.t.biz@gmail.com> (https://github.com/YOS0602)",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@types/node": "^20.9.0",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
@@ -21,7 +19,6 @@
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2",
-    "vite": "^4.5.0",
     "vitest": "^0.34.6"
   }
 }
