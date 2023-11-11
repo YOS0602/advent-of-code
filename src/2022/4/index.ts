@@ -1,11 +1,8 @@
 export function findPairsCountWholeIncluded(input: string): number {
-  return input
-    .split('\n')
-    .map((line) => {
-      const [pair1, pair2] = line.split(',');
-      return isSubset(pair1, pair2) || isSubset(pair2, pair1);
-    })
-    .filter((v) => v === true).length;
+  return findPairsCountService(input, (line) => {
+    const [pair1, pair2] = line.split(',');
+    return isSubset(pair1, pair2) || isSubset(pair2, pair1);
+  });
 }
 
 /**
@@ -23,4 +20,35 @@ export function isSubset(base: string, input: string): boolean {
     return true;
   }
   return false;
+}
+
+function findPairsCountService(
+  input: string,
+  mapFunc: (line: string) => boolean
+): number {
+  return input
+    .split('\n')
+    .map(mapFunc)
+    .filter((v) => v === true).length;
+}
+
+// Part2
+export function findPairsCountWithIntersection(input: string) {
+  return findPairsCountService(input, (line) => {
+    const [pair1, pair2] = line.split(',');
+    return hasIntersection(pair1, pair2);
+  });
+}
+
+export function hasIntersection(a: string, b: string): boolean {
+  const [aMin, aMax] = a.split('-').map(Number);
+  const [bMin, bMax] = b.split('-').map(Number);
+
+  if (aMax < bMin && aMax < bMax) {
+    return false;
+  }
+  if (aMin > bMin && aMin > bMax) {
+    return false;
+  }
+  return true;
 }
