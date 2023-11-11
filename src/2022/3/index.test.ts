@@ -1,8 +1,11 @@
 import { test, expect } from 'vitest';
 import {
+  divideEachGroup,
+  findCommonBadgeOfGroup,
   findDuplicateItemInRucksack,
   findPriority,
-  sumPrioritiesOfItemInEachRucksack,
+  sumPrioritiesOfEachGroupBadge,
+  sumPrioritiesOfItemsInEachRucksack,
 } from '.';
 
 test('各リュックサックの両方のコンパートメントに表示されるアイテムタイプの優先度の合計を求められる', () => {
@@ -14,7 +17,7 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`;
   // when
-  const actual = sumPrioritiesOfItemInEachRucksack(input);
+  const actual = sumPrioritiesOfItemsInEachRucksack(input);
   // then
   expect(actual).toBe(157);
 });
@@ -37,4 +40,46 @@ test.each([
   ['s', 19],
 ])("項目タイプの優先順位を求められる('%s' -> %d)", (input, expected) => {
   expect(findPriority(input)).toBe(expected);
+});
+
+// Part2
+
+test('各グループにおけるバッジの優先度を合計できる', () => {
+  // given
+  const input = `vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`;
+  // when
+  const actual = sumPrioritiesOfEachGroupBadge(input);
+  // then
+  expect(actual).toBe(70);
+});
+
+test('リュックサックの中身を、各グループごとに分けられること', () => {
+  // given
+  const input = `a
+b
+c
+d
+e
+f`;
+  // when
+  const actual = divideEachGroup(input);
+  // then
+  expect(actual).toStrictEqual([
+    ['a', 'b', 'c'],
+    ['d', 'e', 'f'],
+  ]);
+});
+
+test('1グループのバッジ(3人のエルフが持つ共通のitem)を見つけられること', () => {
+  // given
+  const input = ['abc', 'cde', 'cfg'] as [string, string, string];
+  // when
+  const actual = findCommonBadgeOfGroup(input);
+  // then
+  expect(actual).toBe('c');
 });
