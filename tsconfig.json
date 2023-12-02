@@ -16,7 +16,9 @@
     "incremental": true,
     "rootDir": ".",
     "baseUrl": "./src/",
-    "paths": {},
+    "paths": {
+      "@/utils/*": ["utils/*"]
+    },
     "plugins": []
   },
   "include": ["**/*.ts", "**/*.tsx"],
